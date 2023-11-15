@@ -1,0 +1,17 @@
+{% extends "registration/base.html" %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+<div class="container">
+    <form action="/accounts/login/" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+
+        <input type="submit" value="login">
+        <input type="hidden" name="next" value="{{next}}">
+    </form>
+    <p>Don't have an Account, <a href="/accounts/register"><button>Register</button></a></p>
+</div>
+{% endblock %}
